@@ -1,23 +1,82 @@
 aid: auger
+
 name: Auger
-description: 'Auger is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://auger.com/wp-content/uploads/2026/01/Social-512.png
+
+description: Auger provides an operating system for supply chain finance, ingesting raw operational streams such as ERPs, spreadsheets, and legacy
+  APIs to unlock trapped working capital. The platform automates coordination, reduces lead times, and offers AI‑driven insights to help enterprises
+  accelerate execution and capture billions of dollars in value.
+
 url: https://raw.githubusercontent.com/api-evangelist/auger/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-26 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-26'
+
 modified: '2026-09-26'
+
 tags:
 - Company
-apis: []
+- SupplyChain
+- Finance
+- Automation
+- AI
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/auger-hosts.yml
+- type: Vendors
+  url: vendors/auger-vendors.yml
+- type: TrustCenter
+  url: https://trust.auger.com/
+- type: Security
+  url: https://auger.com/security/
+- type: PrivacyPolicy
+  url: https://auger.com/privacy-notice/
+- type: Newsroom
+  url: https://auger.com/about/newsroom/
+- type: Leadership
+  url: https://auger.com/about/team/kim-peevy/
+- type: VulnerabilityDisclosure
+  url: security/auger-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/auger-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/auger-stock
+  url: https://auger.com
+
+apis:
+- name: Auger API
+  description: API for Auger platform
+  humanURL: https://auger.com
+  aid: auger:auger-api
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: No OpenAPI or other machine-readable contract found on any probed host.
+  evidence:
+  - url: https://api.auger.com/openapi.json
+    status: timeout
+  - url: https://auger.com/openapi.json
+    status: 404
+  checked: 2026-09-26
+x-enrichment:
+  date: '2026-09-26'
+  status: enriched
+  artifacts_added: 6
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
